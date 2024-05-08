@@ -1,0 +1,9 @@
+npx create-react-app netflix-gpt2
+npm start or npm run start
+Let's setup our project.
+Tailwindcss
+
+npm install -D tailwindcss
+npx tailwindcss init
+
+(see tailwindcss website on how to setup tailwindcss for create-react-app )
