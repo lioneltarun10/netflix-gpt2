@@ -7,3 +7,36 @@ npm install -D tailwindcss
 npx tailwindcss init
 
 (see tailwindcss website on how to setup tailwindcss for create-react-app )
+
+After this we will discuss what features to build
+
+# Features
+- Login/Sign up
+  - Sign In/ Sign Up form
+  - redirect to browse page
+- Browse page (after authentication)
+ - Header
+ - Main Movie
+   - Trailer in background
+   - Title & Description
+   - Movie Suggestions
+    - MovieLists * N
+ - NetflixGPT 
+  - Search Bar
+  - Movie suggestions 
+
+  Then let's create some basic components for our project like Browse, header , Body , Login , etc.
+
+  Now let's setup routing
+  npm i -D react-router-dom
+
+  We have setup our routing
+  Now let's create a login form 
+  Login is done , let's create sign up
+  But do we need new form for sign up or can we convert smae form to sign up form?
+
+  We can convert same form to sign up form.
+
+  Now our form needs validations. Whenever we need  a big form for our application, we can use FORMIK library. It is very good to build form inside react applications ,and easy to handle validations.
+
+  Now we will not use FORMIK , we will write validations on our own.
