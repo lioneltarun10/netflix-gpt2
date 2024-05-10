@@ -60,3 +60,18 @@ After this we will discuss what features to build
 3) initialize firebase - 'firebase init' , then select hosting
 (before 4th step , do 'npm run build' to build our project for production deployment)
 4) Deploy command - 'firebase deploy'
+
+
+Reading authentication is the super power of a developer.
+
+We will read documentation and setup our user signup .
+
+Latest of firebase is to use "web modular api" , don't use "web namespaced api"
+
+We can see in firebase authentication docs , that the line
+const auth = getAuth()
+
+is used everywhere , that's why we will keep this line at a central place , instead of writing this line twice for signIn and signUp.
+
+We have written code for signIn / SignUp.
+Now once the user is signed In or signed Up , we will store our user details in redux store and also navigate to browse page.
