@@ -40,3 +40,23 @@ After this we will discuss what features to build
   Now our form needs validations. Whenever we need  a big form for our application, we can use FORMIK library. It is very good to build form inside react applications ,and easy to handle validations.
 
   Now we will not use FORMIK , we will write validations on our own.
+
+  We will be using useRef hook for validations.
+
+  We will create a seperate utility called validate.js to validate our form data. So that the login.js is kept simple.
+
+  Now we created checkValidData function in validate.js , we can use it in our handleButtonClick function in Login.js.
+  But how will we get email and password typed in the input box? one way is to use state variables for email and passowrd , so when user types something , it constantly updates the state variables. 
+  Other way is to use useRef hook which references the email inpu box and password input box. Reference is created by react using useRef hook.
+
+  vALIDATIONS writing is done , now we will do authentication of our app.
+
+  We will use google firebase for authentication and also we will host our app in firebase itself.
+
+  Steps for deployment
+
+  1)Install forebase CLI - 'npm install -g firebase-tools'
+2) firebase login - 'firebase login'
+3) initialize firebase - 'firebase init' , then select hosting
+(before 4th step , do 'npm run build' to build our project for production deployment)
+4) Deploy command - 'firebase deploy'
