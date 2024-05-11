@@ -166,3 +166,6 @@ But when we write the code for navigate in useEffect of our body component, we f
   Now let's build the browse page.
 
   We will be using TMDB API for movies list.
+
+
+  

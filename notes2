@@ -1,0 +1,20 @@
+Now we will fix another bug
+
+If a user is not loggedIn , he is able to access browse page and if a user if logged In , if he tries to go to login page , he is able to go , but ideally we should redirect him to browse page as he's logged In. We must fix this 2 issues.
+
+Ideally we should navigate from onAuthStateChanged API , which will solve the problems. But we saw that when we use useNavigate in useEffect of body.js , we were getting error : useNavigate cannot be used outside of router component(router provider).
+
+So we need to move this useEffect to such a place (component) that it is present for our whole app always and also inside our router Provider.
+
+So one best place to put our code is in header component as it is always present in our app at all times.
+So we added useEffect from body.js to header.js , and the earlier logic to navigate which was present in Login.js we have removed it.
+Also we don't need navigate in handleSignOut function too , because onAuthStateChanged API (which works as listener when state is changed) will take care of it also. 
+
+We have to fix another issue , which is basically like a good hygiene practice.
+
+Whenever our component header is mounted , it keeps adding this onAuthStateChanged listener to our browser , so if it mounted multiple times , multiple listeners are added to our browser , but we must unsubscribe to the listener when the component unmounts.
+
+If you read the firebase docs , this onAuthStateChanged returns a function , which helps in unsubscribing. so we will use that.
+We have added code for unsubscribing in the useEffect itself.
+
+One more thing is we are directly using string's in our code . Instead we should keep them in a constants file and use from there , because tomorrow if change the URL , and it's in use n multiple places , we don't have to change in all locations , but just in the constants file.
