@@ -144,3 +144,25 @@ But when we write the code for navigate in useEffect of our body component, we f
   We have successfully done navigation and also storing user details in store when loggedIn/SignedUP.
 
   Now let's build sign out feature.
+
+  We have taken profile icon from netflix.
+
+  Now we can use sign out API from firebase.
+
+  We have built the signout feature.
+
+  Now one thing left is displayName of user provided by firebase. we are not storing the user name when he sign's up to the displayname property of user.
+  We can look into firebase manage users section , and find the "update a user's profile" API.
+
+
+  FIXING A BUG!!
+
+  When a new user is registered , we are navigated to browse page , bu the user profile and user display name is not updated in store , because as soon as user is Signed Up , there's a change in auth status , because of which the "onAuthChange" API call happens , and only uid and email is updated , as we still did not call the updateProfile API yet in Login.js
+
+  To solve this , we can dispatch an action again in  updateProfile API call.
+
+  That's it we are done with user authentication.
+
+  Now let's build the browse page.
+
+  We will be using TMDB API for movies list.
