@@ -75,3 +75,72 @@ is used everywhere , that's why we will keep this line at a central place , inst
 
 We have written code for signIn / SignUp.
 Now once the user is signed In or signed Up , we will store our user details in redux store and also navigate to browse page.
+
+Install redux
+npm i -D @reduxjs/toolkit
+npm i react-redux
+
+We have created our redux store , now we will provide the store at root of our application which is app.js.
+
+Now we can dispatch an action to store our user whenever we login or remove user when we logout. But this way we are dispatching action many times, instead of that we can use the utility function(API) given by firebase in manage users section which is 
+"onAuthStateChanged" API. This API is like a eventlistener for change of status of user lgin status , when that event happens ,it will call a callback function, So we can use that callback function to perform whatever redux operations we want to perform.
+
+This API will perform actions whenever there's a change in user state (login status).
+We will use this API at body component , and also we need to run this API only once(we will add this eventlistener kind of API only once) , so we will use useEffect hook.
+
+That means , we have use this API once when we launch the website , this API is set such that whenever there's change in user login status it will call the callback function that we have given.
+
+Now we will dispatch our actions using the useDispatch hook , we will dispatch that actions inside our API call.
+
+REMEMBER ALSO USE HOOKS ON TOP OF THE COMPONENT , REST OTHER THINGS WILL COME AFTERWARDS.
+
+Also remember , we need to navigate when the user logs In/Sign Up. we will do that in the API call itself.
+
+We can use useNavigate hook for navigating.
+But when we write the code for navigate in useEffect of our body component, we faced a problem , which says that navigate cannot be used out of router provider. That is we are using router provider in body component , children of body can do navigation , but useEffect is run before the main rendering is done , and so we cannot do navigation outside of body(in which router provider is given).
+
+ const dispatch = useDispatch()
+  const navigate = useNavigate();
+
+  const appRouter = createBrowserRouter([
+    {
+      path:'/',
+      element:<Login />
+    },
+    {
+      path:'/browse',
+      element: <Browse />
+    }
+  ])
+
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        // User is signed in, see docs for a list of available properties
+        // https://firebase.google.com/docs/reference/js/auth.user
+        const {uid,email,displayName}  = user;
+        dispatch(addUser({uid:uid,email:email,displayName:displayName}));
+        navigate('/browse')
+      } else {
+        // User is signed out
+        // ...
+        dispatch(removeUser())
+        navigate('/')
+      }
+    })
+  },[])
+  
+  return (
+      <div>
+       <RouterProvider router={appRouter}></RouterProvider>
+      </div>
+    )
+  }
+
+  One solution is to move our router provider from body level to app.js level , but to do this we have to change the structure of our code again.
+
+  Another solution is we can just navigate in login.js.
+
+  We have successfully done navigation and also storing user details in store when loggedIn/SignedUP.
+
+  Now let's build sign out feature.
