@@ -72,3 +72,10 @@ We will put the trailer into the store. Let's create a new action in moviesSlice
 We will use the redux store method.
 
 Now this videoBackground component is looking ugly , let's follow the clean code practices. Let's create a custom hook for the functionality of fetching the trailer video && updating the store with trailer video data.
+
+This is called modular coding. This also prompts something known as seperation of concerns.
+
+Our code becomes more testable , modular , readable , visible and clearer.
+
+Now let's make our trailer come in the background and our title should come on top of it.
+
