@@ -18,3 +18,57 @@ If you read the firebase docs , this onAuthStateChanged returns a function , whi
 We have added code for unsubscribing in the useEffect itself.
 
 One more thing is we are directly using string's in our code . Instead we should keep them in a constants file and use from there , because tomorrow if change the URL , and it's in use n multiple places , we don't have to change in all locations , but just in the constants file.
+
+Now let's build browse page , we will be using TMDB (the movies database) API , for all our movies data.
+
+We will first fetch the "now playing" movies data .
+And we will make the API call inside the useEffect of browse page , so that it is only called once when we mount the browse component.
+
+MAJOR DOUBT RESOLVED!!
+When have fetched the movies data from API , and we console logged the json in the console.
+We can observe that the data is logged twice. Also in redux devTools , you can observe that a action is shown twice sometimes. 
+
+This is because of React.StrictMode , which we used to wrap our App.js in index.js . When we use strictmode , a lot of things happens twice , but only in our local , when we make a build for production , this will not happen twice.
+
+BUt why it happens in local(development mode)?
+Because this strictmode , renders the comoonents twice to check for any kind of inconsistency in our calls.
+
+
+Now , we got our data , let's put the data in our store.
+
+We can see that our browse component is getting ugly , it show only render the browse page. So let's extract our logic of API data fetching into another file , and we can actually create our own custom HOOK for this movies data fetching.
+
+This are best preactices that we are following to keep our code clean , modular and understandable , readable.
+
+Remember always name custom hooks starting with "use".
+useNowPlayingMovies is the hook we created to fetch data from API and store the movies in the store.
+
+Remember that hook is nothing but a JS function.
+
+Now our browse component is very clean.
+
+Now let's build our browse page, we will have two sections one is MainContainee which has latest movie trailer and title components , and the another section is secondaryContainer which will have lists of movies .
+
+Let;s build MainContainer. We will use components for VideoTitle and VideoBackground is for trailer in background.
+
+We have build videoTitle as it is as netflix.
+
+For videoBackground component , we need the trailer of the movie , but we can see that nowPlayingMovies API doesn't have video data. 
+
+We search TMDB , we can see that "videos" API will take a movie ID ,and give us the videos related to that movie.
+
+We will select the object which ahs type "Trailer" among the list of vidoes for a movie , and that object has a youtube key which we can use to fetch the trailer from youtube.
+
+We can play the video from youtube in our app , by clicking on share button for a video , then click on "Embed" , then copy the iframe code and paste in our application.
+
+In the Embed that we copied , we need to give the trailer key from the trailer data that we fetched from API , then the video from youube will be dynamic , whatever movie is fetched from API , that movies trailer will come in the iframe.
+
+We can make the trailer dynamic in two ways.
+1) To use state variables to store the key from API data , and set the key to the trailerId variable and use that variable in src attribute of iframe.
+
+2) When we are using redux store , we must use it's super power also. If we store in our redux store , we need not create the state variable.
+We will put the trailer into the store. Let's create a new action in moviesSlice to add our trailer.
+
+We will use the redux store method.
+
+Now this videoBackground component is looking ugly , let's follow the clean code practices. Let's create a custom hook for the functionality of fetching the trailer video && updating the store with trailer video data.
