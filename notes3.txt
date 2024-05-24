@@ -1,0 +1,55 @@
+We will create a GPT button in header, on clicking it , we will go to GptSearch Component ,
+and we will add our fuctionality there.
+
+we will render our GptSearch component in browse component , but we will show our GptSearch component only
+if we click on GPT button in header.
+Basically we have to introduce a kind of toggle functionality.
+
+We can do that by either storing toggle variable as state variables by using
+useState hook or as we are already using redux store , we can use redux store to store our button toggle.
+
+we have userslice and movieslice , now we are dealing with gpr search , so let's create new slice.
+It's not mandatory to create new slices , we can keep everything in one slice itself , but it's always
+good to keep logical seperation in code.
+
+We will introduce the toggle functionality at browse component.
+We have added toggle functionality , now let's build gptSearch component.
+
+we have added netflix background image to GptSearch component , which is already used in login.
+This is one of the reasons why we need to keep all constants ,strings , URL's in seperate constants file.
+
+In GptSearchBar component , we added a form with input box and a button , and made them appear in center of page.
+
+Adding multi language to our webpage.
+There are websites where we can select language of our choice , then we can see everything in that language , how can we make that?
+
+Let's make Hindi and English languages in search bar of gpt search.
+
+How do we do that?
+Basically every text that is present on website should come from some constants file , and according to the language we choose , that 
+particular language constants should display in place of text.
+
+Each and every text in website should be constant in some constants file. They should
+not be hardcoded.
+
+We are giving select box in header for user to select language , and the code for language in header in 
+dynamic , not hardcoded. We are giving languages array in constants.js file and we have mapped over that array.
+
+First of all , we need to store the selected language in redux store , we will store in new Slice called app config , 
+which has config like language , dark/light theme , user Preferences ,etc.
+
+We have create configSlice for storing app configuration.
+
+We can see that we are storing whole data layer in redux store , and we are syncing that data layer with
+the UI layer.
+
+
+Tip: Never push console.log into production code.
+
+We have used the stored language from redux store to display that language context in GptSearchBar component.
+
+We will also show the language select only in gptsearch component , not in browse or login component.
+
+That's it we made our app multi-lingual.
+
+Nowe let's continue with building gpt search.
