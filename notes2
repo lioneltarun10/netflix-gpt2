@@ -79,3 +79,14 @@ Our code becomes more testable , modular , readable , visible and clearer.
 
 Now let's make our trailer come in the background and our title should come on top of it.
 
+Now we want our video to play automatically , so we did google search and found that to inclue &autoplay=1&mute=1 in the src of embedded video , to make the video autoplay and mute it.
+
+Now let's create the secondaryContainer , we will render MovieList component from SecondaryContainer , MovieList will have N number of MovieCards components.
+
+We need the poster of movie for the moviecard.
+we can se poster-path which we have to append to the image URL provided by TMDB , the image URL we can search in TMDB website.
+
+"https://image.tmdb.org/t/p/w500/" + POSTER_PATH
+
+we can change the width of the image by changing w500 to w700 ,etc.
+
