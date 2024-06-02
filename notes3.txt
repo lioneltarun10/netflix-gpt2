@@ -220,4 +220,16 @@ memoization is a big word , but it's simple.
 If data already has nowPlayingMovies , we don't fetch it , this is called memoization.
 It would save us a lot of API calls. Suppose 1 lakh users on website , imagine the number of API calls would be saved by adding memoization.
 
+Now , regarding OPENAI key , we don't want the users to use our apoenai key , but their own key , so we can ask the users for their openai key.
 
+Now lets make our netflisGpt responsive.
+
+First let's fix the GPT SEARCH page first.
+Let's fix header in GPTSEARCH page.
+Now let's fix gptsearchBar and then fix the search results.
+
+We are done with gptSearch page , let's fix the browse page now.
+
+We have fixed the browse page for mobile phones.
+
+Now lets move to last page which is login page.
