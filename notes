@@ -55,14 +55,14 @@ After this we will discuss what features to build
 
   Steps for deployment
 
-  1)Install forebase CLI - 'npm install -g firebase-tools'
+  1)Install firebase CLI - 'npm install -g firebase-tools'
 2) firebase login - 'firebase login'
 3) initialize firebase - 'firebase init' , then select hosting
 (before 4th step , do 'npm run build' to build our project for production deployment)
 4) Deploy command - 'firebase deploy'
 
 
-Reading authentication is the super power of a developer.
+Reading documnetation is the super power of a developer.
 
 We will read documentation and setup our user signup .
 
@@ -92,7 +92,7 @@ That means , we have use this API once when we launch the website , this API is 
 
 Now we will dispatch our actions using the useDispatch hook , we will dispatch that actions inside our API call.
 
-REMEMBER ALSO USE HOOKS ON TOP OF THE COMPONENT , REST OTHER THINGS WILL COME AFTERWARDS.
+REMEMBER ALways USE HOOKS ON TOP OF THE COMPONENT , REST OTHER THINGS WILL COME AFTERWARDS.
 
 Also remember , we need to navigate when the user logs In/Sign Up. we will do that in the API call itself.
 

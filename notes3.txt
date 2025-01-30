@@ -59,7 +59,7 @@ give us results.
 
 Let's first take API from platform.openai.com .
 
-We created new secret API key , and remember this key should be gidden from others ,
+We created new secret API key , and remember this key should be hidden from others ,
 because this key is free only for 3 months , after that thwy will start a billing cycle and we have to pay to use the API's 
 of openai . SO if someone get's hold of our key they might use our key and trigger billing on our account.
 
@@ -169,7 +169,7 @@ Now let's see how to show them.
 We want show the movies in similar fashion to our browse page , where we have a title and movies under that title.
 In this case , title becomes our movie name given by gpt api , and movie list under taht title is the results given by tmdb for that movie name.
 
-Also observe!!! movieList component takes title and movies as props , we can se the same component.
+Also observe!!! movieList component takes title and movies as props , we can use the same component.
 See the reusability!!!
 
 Finally , We have rendered our movie name and corresponding movie list in our gptMovieSuggestions component.
@@ -202,7 +202,7 @@ Then we add this .env file to our gitignore.
 
 This process.env and .env file is not related to react , it is something related to basic security in production.
 
-This .env it not pushed to git by including in gitignore , but we need to set the environment variables in our server computer with our secret info variable names , so that 
+This .env is not pushed to git by including in gitignore , but we need to set the environment variables in our server computer with our secret info variable names , so that 
 the server we access our secret info from the server's environment variables using process.env .
 This way hacker will not know the secret info from our app , as it is not present in app , but in our environment in server.
 

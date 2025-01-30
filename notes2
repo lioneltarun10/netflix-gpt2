@@ -17,7 +17,7 @@ Whenever our component header is mounted , it keeps adding this onAuthStateChang
 If you read the firebase docs , this onAuthStateChanged returns a function , which helps in unsubscribing. so we will use that.
 We have added code for unsubscribing in the useEffect itself.
 
-One more thing is we are directly using string's in our code . Instead we should keep them in a constants file and use from there , because tomorrow if change the URL , and it's in use n multiple places , we don't have to change in all locations , but just in the constants file.
+One more thing is we are directly using string's in our code . Instead we should keep them in a constants file and use from there , because tomorrow if change the URL , and it's in use in multiple places , we don't have to change in all locations , but just in the constants file.
 
 Now let's build browse page , we will be using TMDB (the movies database) API , for all our movies data.
 
@@ -25,7 +25,7 @@ We will first fetch the "now playing" movies data .
 And we will make the API call inside the useEffect of browse page , so that it is only called once when we mount the browse component.
 
 MAJOR DOUBT RESOLVED!!
-When have fetched the movies data from API , and we console logged the json in the console.
+We have fetched the movies data from API , and we console logged the json in the console.
 We can observe that the data is logged twice. Also in redux devTools , you can observe that a action is shown twice sometimes. 
 
 This is because of React.StrictMode , which we used to wrap our App.js in index.js . When we use strictmode , a lot of things happens twice , but only in our local , when we make a build for production , this will not happen twice.
@@ -47,7 +47,7 @@ Remember that hook is nothing but a JS function.
 
 Now our browse component is very clean.
 
-Now let's build our browse page, we will have two sections one is MainContainee which has latest movie trailer and title components , and the another section is secondaryContainer which will have lists of movies .
+Now let's build our browse page, we will have two sections one is MainContainer which has latest movie trailer and title components , and the another section is secondaryContainer which will have lists of movies .
 
 Let;s build MainContainer. We will use components for VideoTitle and VideoBackground is for trailer in background.
 
@@ -57,7 +57,7 @@ For videoBackground component , we need the trailer of the movie , but we can se
 
 We search TMDB , we can see that "videos" API will take a movie ID ,and give us the videos related to that movie.
 
-We will select the object which ahs type "Trailer" among the list of vidoes for a movie , and that object has a youtube key which we can use to fetch the trailer from youtube.
+We will select the object which has type "Trailer" among the list of vidoes for a movie , and that object has a youtube key which we can use to fetch the trailer from youtube.
 
 We can play the video from youtube in our app , by clicking on share button for a video , then click on "Embed" , then copy the iframe code and paste in our application.
 
